@@ -1,5 +1,7 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+
 const routes = require('./api/routes');
 const swaggerUI = require('swagger-ui-express');
 const swaggerDoc = require('./docs/swagger.json');
@@ -17,7 +19,7 @@ app.use('/api', routes);
 
 // health check
 app.get('/', (req, res) => {
-    res.json({message: 'Liga Mx API is now running...'})
+    res.json({ message: 'Liga Mx API is now running...' })
 })
 
 module.exports = app;

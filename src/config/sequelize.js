@@ -1,4 +1,4 @@
-const { sequelize, Sequelize } = require('sequelize');
+const { Sequelize } = require('sequelize');
 
 // connection with sequelize to postgre
 const sequelize = new Sequelize(

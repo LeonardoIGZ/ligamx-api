@@ -25,7 +25,6 @@
  * @returns {Array<NormalizedTeam>} An array of the normalized team objects
  * 
  */
-
 exports.normalizeTeams = (teamsResponse) => {
     return teamsResponse.map(obj => ({
         id: obj.team.id,

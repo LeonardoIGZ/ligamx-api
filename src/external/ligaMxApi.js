@@ -14,11 +14,11 @@ const { baseURL, apiKey } = require('../config/apiConfig');
  * Includes the baseURL and authentication headers.
  * @type {import('axios').AxiosInstance}
  */
+
 const api = axios.create({
     baseURL,
     headers: {
-        'x-rapidapi-key': apiKey,
-        'x-rapidapi-host': 'api-football-v1.p.rapidapi.com'
+        'x-apisports-key': apiKey
     }
 });
 
@@ -37,12 +37,11 @@ const api = axios.create({
  */
 exports.getTeams = async () => {
     const LEAGUE_ID = 262; // liga mx
-    const SEASON = 2025;
+    const SEASON = 2023;
 
-    const res = await api.get('/v3/teams', {
-        params: { league: LEAGUE_ID, season: SEASON }
+    const res = await api.get('/teams', {
+        params: { league: LEAGUE_ID, season: SEASON }, timeout: 7000
     });
-
-    return res.data.response;
+    return res;
 };
 
