@@ -7,7 +7,7 @@ const standingsRoutes = require('./standings.routes');
 const router = Router();
 
 router.use('/teams', teamsRoutes);
-router.use('/matches', matchesRoutes);
-router.use('/standings', standingsRoutes);
+// router.use('/matches', matchesRoutes);
+// router.use('/standings', standingsRoutes);
 
 module.exports = router;

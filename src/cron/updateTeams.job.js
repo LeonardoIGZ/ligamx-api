@@ -30,20 +30,18 @@ const { normalizeTeams } = require('../external/dataNormalizer');
  */
 
 module.exports = async function updateTeams() {
-    // obtainm raw API data
-    const data = await getTeams();
+    // obtain raw API data
+    const response = await getTeams();
     // normalize data 
-    const normalized = normalizeTeams(data);
+    const normalized = normalizeTeams(response.data.response);
 
     for (const t of normalized) {
         await Team.upsert({
-            id: t.id,
+            external_id: t.id,
             name: t.name,
             short_name: t.short_name,
-            logo_url: t.logo_url,
-            venue_id: t.venue_id
+            logo_url: t.logo_url
         });
     };
-
     console.log('✔ Teams updated.');
 }
