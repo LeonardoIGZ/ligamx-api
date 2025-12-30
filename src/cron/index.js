@@ -31,7 +31,6 @@ module.exports = function startCronJobs() {
     // every minute
     cron.schedule('* * * * *', async () => {
         console.log('⏳ Running schedule job: updateTeams');
-
         try {
             await updateTeams();
             console.log('✅ updateTeams job finished');

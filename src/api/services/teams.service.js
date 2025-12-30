@@ -1,5 +1,5 @@
-const repo = require('../repositories/teams.repository');
+const repository = require('../repositories/teams.repository');
 
 exports.getAllTeams = async () => {
-    return await repo.findAll();
+    return await repository.findAll();
 }
