@@ -1,5 +1,5 @@
 module.exports = (sequelize, Datatypes) => {
-    const Team = sequelize.define("teams", {
+    const Venue = sequelize.define("venues", {
         id: {
             type: Datatypes.INTEGER,
             primaryKey: true,
@@ -10,19 +10,16 @@ module.exports = (sequelize, Datatypes) => {
             allowNull: false,
             unique: true
         },
-        name: Datatypes.STRING,
-        short_name: {
+        name: {
             type: Datatypes.STRING,
-            allowNull: true,
+            allowNull: false
         },
-        logo_url: Datatypes.STRING,
-        venue_fk: {
-            type: Datatypes.INTEGER,
-            references: {
-                model: 'venues',
-                key: 'external_id'
-            }
-        }
+        city: {
+            type: Datatypes.STRING,
+            allowNull: false
+        },
+        capacity: Datatypes.INTEGER,
+        image_url: Datatypes.STRING
     }, { timestamps: false });
-    return Team;
+    return Venue;
 };

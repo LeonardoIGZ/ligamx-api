@@ -11,9 +11,9 @@
 
 /**
  * @typedef {Object} NormalizedTeam - Structure of the team  obsject after normalization
- * @property {string} id - The team name (maped from object.team.name)
+ * @property {string} id - The team name (mapped from object.team.name)
  * @property {string} name - The team code (mapped from obj.team.code)
- * @property {string} short_name - The team cede (maped from obj.team.code) 
+ * @property {string} short_name - The team cede (mapped from obj.team.code) 
  * @property {string} logo_url - The URL of the team logo (mapped from obj.team.logo)
  * @property {number} venue_id - The ID of the team's venue (mapped from obj.venue.id)
  */
@@ -21,11 +21,10 @@
 /**
  * Normalizes and maps the raw APi team response to a simple more consistent object format
  * @exports
- * @param {Array<TeamAPIResponse>} teamsResponse - An array of team objects with the raw APi structures.
+ * @param {Array<TeamAPIResponse>} teamsResponse - An array of team objects with the raw API structures.
  * @returns {Array<NormalizedTeam>} An array of the normalized team objects
- * 
  */
-exports.normalizeTeams = (teamsResponse) => {
+const normalizeTeams = (teamsResponse) => {
     return teamsResponse.map(obj => ({
         id: obj.team.id,
         name: obj.team.name,
@@ -33,4 +32,8 @@ exports.normalizeTeams = (teamsResponse) => {
         logo_url: obj.team.logo,
         venue_id: obj.venue.id
     }));
+}
+
+module.exports = {
+    normalizeTeams
 }
